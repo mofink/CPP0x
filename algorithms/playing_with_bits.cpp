@@ -16,7 +16,7 @@ int count_1_bits(unsigned char* data)
 	return counter;
 }
 
-bool get_parity(unsigned char* data) //odd parity returns 1. I present 3 solutions
+bool get_parity(unsigned char* data) //odd parity returns 1. 3 implamentations
 {
 	
 	int ans = 0;
