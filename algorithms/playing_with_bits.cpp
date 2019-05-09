@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <vector>
 
 //neat post about XOR https://stackoverflow.com/a/16285195/6521643
 
@@ -8,24 +8,24 @@ int count_1_bits(unsigned char* data)
 	int counter = 0;
 	while (*data)
 	{
-		counter += *data & 1;
-		x >>= 1;
+		//slide *data across the window at the least significant bit
+		counter += *data & 1; 
+		*data >>= 1;
 	}
 	return counter;
 }
 
-bool get_parity(unsigned char* data)
+bool get_parity(unsigned char* data) //odd parity returns 1
 {
-	int counter = count_1_bits(data);
-	if (counter % 2 == 0) //even
+	int ans = 0;
+	while (*data)
 	{
-		return 0;
+		ans ^= (*data & 1); //xor toggles a bit (bool value) on and off
+		*data >>= 1;
 	}
-	else
-	{
-		return 1;
-	}
+	return ans;
 }
+
 
 int main()
 {
