@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+
 
 //neat post about XOR https://stackoverflow.com/a/16285195/6521643
 
@@ -29,7 +29,5 @@ bool get_parity(unsigned char* data)
 
 int main()
 {
-	std::vector<int> vec = {12,2,1,15,2,4};
-	std::cout << get_smallest_val(vec) << std::endl;
 	return 0;
 }
