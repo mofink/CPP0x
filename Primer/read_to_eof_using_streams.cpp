@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 
 std::istream& read_to_eof(std::istream& s)
 {
