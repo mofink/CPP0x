@@ -6,7 +6,8 @@
 
 int no_double(std::vector<int>& vec)
 {
-	//the trick is to recall that n^1 = ~n and n^0 = n
+	//the trick is to recall that (n^1 = ~n) n^n = 0 and n^0 = n
+	//intuitively we can use the fact that XOR is associative
 
 	int num = 0;
 	for (int i: vec)
