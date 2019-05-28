@@ -31,7 +31,7 @@ public:
 		first_free = cap = iter_pair.second;
 	}
 	
-		my_vector& operator=(const my_vector& rhs)
+	my_vector& operator=(const my_vector& rhs)
 	{
 		auto iter_pair = alloc_and_copy(rhs.begin(), rhs.end()); //in case this == &rhs
 		free();
