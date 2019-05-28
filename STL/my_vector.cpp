@@ -30,11 +30,23 @@ public:
 		elements = iter_pair.first;
 		first_free = cap = iter_pair.second;
 	}
+	
+		my_vector& operator=(const my_vector& rhs)
+	{
+		auto iter_pair = alloc_and_copy(rhs.begin(), rhs.end()); //in case this == &rhs
+		free();
+		elements = iter_pair.first;
+		first_free = cap = iter_pair.second;
+
+		return *this;
+
+	}
 
 	my_vector(my_vector&& orig) noexcept : elements(orig.elements), first_free(orig.first_free), cap(orig.cap)
 	{
 		orig.elements = orig.first_free = orig.cap = nullptr;
 	}
+	
 
 	my_vector& operator=(const my_vector&& rhs) noexcept
 	{
@@ -48,18 +60,6 @@ public:
 			rhs.elements = rhs.first_free = rhs.cap = nullptr;
 		}
 		return *this;
-	}
-
-
-	my_vector& operator=(const my_vector& rhs)
-	{
-		auto iter_pair = alloc_and_copy(rhs.begin(), rhs.end()); //in case this == &rhs
-		free();
-		elements = iter_pair.first;
-		first_free = cap = iter_pair.second;
-
-		return *this;
-
 	}
 
 	~my_vector()
