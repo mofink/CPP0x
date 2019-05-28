@@ -17,16 +17,16 @@ public:
 
 	HasPtr& operator=(HasPtr& rhs) //copy assignment operator overload
 	{
-		//need to account for case of self copy, also need to free rhs.ps
-		std::string * newp = new std::string(*rhs.ps); //copy VALUE stored in rhs.ps
-		delete ps; //free memory held by old pointer
-		ps = newp; //copy value from old pointer into new pointer
+		//need to free this.ps, also need to account for case of self copy hence the need for newp temp variable
+		std::string * newp = new std::string(*rhs.ps); 
+		delete ps; 
+		ps = newp; 
 		
 		i = rhs.i;
 		return *this;
 	}
 
-	~HasPtr() //destructor, needed to free dynimcally allocated memory, everything else is handled implicitly
+	~HasPtr() //destructor, need to free dynimcally allocated memory, everything else is handled implicitly
 	{
 		delete ps;
 	}
