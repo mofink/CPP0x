@@ -15,17 +15,25 @@ public:
 		i = orig.i;
 	}
 
-	HasPtr& operator=(HasPtr& orig) //copy assignment operator overload, same notes as copy constructor
+	HasPtr& operator=(HasPtr& rhs) //copy assignment operator overload
 	{
-		ps = new std::string(*orig.ps);
-		i = orig.i;
-
+		//need to account for case of self copy, also need to free rhs.ps
+		std::string * newp = new std::string(*rhs.ps); //copy VALUE stored in rhs.ps
+		delete ps; //free memory held by old pointer
+		ps = newp; //copy value from old pointer into new pointer
+		
+		i = rhs.i;
 		return *this;
 	}
 
 	~HasPtr() //destructor, needed to free dynimcally allocated memory, everything else is handled implicitly
 	{
 		delete ps;
+	}
+
+	void print()
+	{
+		std::cout << *ps << std::endl;
 	}
 
 private:
@@ -39,6 +47,10 @@ private:
 
 int main()
 {
-
+	HasPtr obj("string");
+	HasPtr obj2;
+	obj2 = obj;
+	obj2 = obj2;
+	obj2.print();
 	return 0;
 }
