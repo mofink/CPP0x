@@ -1,11 +1,9 @@
 #include <iostream>
 #include <memory>
-#include <utility> //for std::move()
+#include <utility> 
 #include <string> //for test case
 
 //uses of allocator here are depricated in C++17, valid for C++11
-
-//this is not robust -- default initialize vector and fill using push_back method
 
 template <typename T>
 class my_vector
@@ -13,8 +11,17 @@ class my_vector
 
 public:
 
-	//default initialization
 	my_vector() : elements(nullptr), first_free(nullptr), cap(nullptr) {}
+	my_vector(std::initializer_list<T> input) : elements(nullptr), first_free(nullptr), cap(nullptr)
+	{
+		for (auto val: input)
+		{
+			chck_if_resize();
+			alloc.construct(first_free++, val);
+
+		}
+	}
+
 	
 	my_vector(my_vector& orig)
 	{
@@ -147,17 +154,13 @@ int main()
 	}
 	std::cout << vec.size() << std::endl;
 
-	my_vector<std::string> vec_str;
-
-	vec_str.push_back("Hello");
-	vec_str.push_back("str");
-	vec_str.push_back("this");
+	my_vector<std::string> vec_str{"This","is","a","vector"};
 
 	for (auto i: vec_str)
 	{
 		std::cout << i << std::endl;
 	}
-	std::cout << vec.size() << std::endl;
+	std::cout << vec_str.size() << std::endl;
 
 
 
