@@ -2,6 +2,8 @@ This directory showcases various scripts I've written in C++1x (assume C++11 unl
 
 - STL is a directory for my own (stripped down) implementation of select classes from the STL
 
+- concurrency is a directory for programs that use multithreading
+
 - algorithms is a directory for various algorithms I designed while solving practice problems, loosely organized by topic
 
 - statistics is a directory for programs involving simple stochastic calculations (the sort of stuff you'd see from a data scientist)
