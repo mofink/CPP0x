@@ -1,6 +1,6 @@
 This directory showcases various scripts I've written in C++1x (assume C++11 unless otherwise indicated)
 
-- STL is a directory for my own (stripped down) implementation of select classes from the STL
+- STL is a directory for my own (stripped down) implementation of select classes from the STL, as well as some C implementations of various C++ language features (e.g. virtual functions)
 
 - concurrency is a directory for programs that use multithreading
 
