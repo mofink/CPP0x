@@ -1,4 +1,4 @@
-This directory showcases various scripts I've written in C++1x (assume C++11 unless otherwise indicated)
+This directory showcases various scripts I've written in C++1x (assume C++14 unless otherwise indicated)
 
 - STL is a directory for my own (stripped down) implementation of select classes from the STL, as well as some C implementations of various C++ language features (e.g. virtual functions)
 
